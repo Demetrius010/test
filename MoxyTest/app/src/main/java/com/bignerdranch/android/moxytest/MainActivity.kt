@@ -21,7 +21,7 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {//для фраг
     @InjectPresenter//(presenterId = "", tag = "", type = PresenterType.GLOBAL)// type ВЫРЕЗАЛИ ИЗ Moxy 2.x.x) GLOBAL-чтобы Presenter жил не зависимо от того, кто и когда на него подписан
     lateinit var mainActivityPresenter: MainActivityPresenter//Presenter будет жить пока есть View, в которой он содержится(+ пока происходит смена конфигурации)
 
-    @ProvidePresenter//если презентер не получает параметры то этот метод не нужен
+    @ProvidePresenter//если презентер НЕ получает параметры то этот метод НЕ нужен
     fun provideMainActivityPresenter(): MainActivityPresenter {//Нужно чтобы функция @ProvidePresenter гарантированно создавала новый инстанс presenter.
         return MainActivityPresenter(repository)
     }
